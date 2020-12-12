@@ -1,17 +1,16 @@
 module.exports = {
   siteMetadata: {
-    title: `Nicholas Sebastian`,
+    title: `Aether`,
+    description: `Portfolio Web Site`,
     author: {
       name: `Nicholas Sebastian`,
       summary: `Second-year Computer Science student, aspiring Software Developer.`,
     },
-    description: `Portfolio Website.`,
-    siteUrl: `https://nichsebastian.com/`,
     social: {
       email: `nicholassebastianhendrata@gmail.com`,
       github: `NicholasSebastian`,
-      instagram: `nichsebastian`,
-      linkedin: `NicholasSebastian`,
+      instagram: `nicholashendrata`,
+      linkedin: `nichsebastian`,
       twitter: `NicholasSebas10`,
     },
   },
@@ -37,7 +36,7 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 630,
+              maxWidth: 1000,
             },
           }
         ],
@@ -45,6 +44,7 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-sass`,
     `gatsby-plugin-react-helmet`,
   ],
 }
