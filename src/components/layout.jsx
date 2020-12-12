@@ -1,6 +1,11 @@
 import React from "react"
 import { Link, useStaticQuery } from "gatsby"
 
+// Add navbar functionality and media queries
+// Add pages nav to footer
+// Add notes feed to footer
+// Add blog feed to footer
+
 const Layout = ({ location, children }) => {
   const data = useStaticQuery(staticQuery);
 

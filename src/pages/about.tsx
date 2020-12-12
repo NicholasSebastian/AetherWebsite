@@ -14,7 +14,6 @@ const About = ({ data, location }) => {
     <Layout location={location}>
       <SEO title="About" />
       <h3>About</h3>
-
       <section>
         <div>
           <h4>Profile</h4>
@@ -25,14 +24,16 @@ const About = ({ data, location }) => {
           <div>
             An aspiring software engineer who usually spends time working on personal 
             projects and learning new skills. <br/>
-            I'm always eager to experience new things and find new ways to leverage 
-            and make the most of my skills. <br/>
-            I'm currently a second year undergraduate student pursuing a computer science 
+            He's always eager to experience new things and find new ways to leverage 
+            and make the most of his skills. <br/>
+            He's currently a second year undergraduate student pursuing a computer science 
             degree from the University of Wollongong.
           </div>
           <div>
-            <a>Experiences</a>
-            <a>CV / Resume</a>
+            <Link to="/experience">Experience</Link>
+            <a href="https://drive.google.com/file/d/1Iy3k-mzVJ2L6v8AFNLEAk8b1HfuuTdyJ/view?usp=sharing">
+              CV / Resume
+            </a>
           </div>
 
           <dl>
