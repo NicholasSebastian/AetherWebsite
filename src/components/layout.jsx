@@ -11,7 +11,7 @@ const Layout = ({ location, children }) => {
     <header id="header-nav">
       <Link to="/">
         <div>{title}</div>
-        <div>{title} by {author.name}</div>
+        <div>{title} by {author.name} - {description}</div>
       </Link>
       <div>Nav here</div>
     </header>
@@ -24,19 +24,21 @@ const Layout = ({ location, children }) => {
         <Link to ="/">Home</Link>}
       </div>
       <div>
-        <div>{title} by {author.name} - {description}</div>
-        <dl>
-          <dt>Follow me</dt>
-          <dd>
-            <a href={`https://www.linkedin.com/in/${linkedin}`}>LinkedIn</a>/
-            <a href={`https://www.github.com/${github}`}>GitHub</a>
-          </dd>
-          <dt>Private</dt>
-          <dd>
-            <a href={`https://www.instagram.com/${instagram}`}>Instagram</a>/
-            <a href={`https://www.twitter.com/${twitter}`}>Twitter</a>
-          </dd>
-        </dl>
+        <div>
+          <div>{title} by {author.name} - {description}</div>
+          <dl>
+            <dt>Follow me</dt>
+            <dd>
+              <a href={`https://www.linkedin.com/in/${linkedin}`}>LinkedIn</a>/
+              <a href={`https://www.github.com/${github}`}>GitHub</a>
+            </dd>
+            <dt>Private</dt>
+            <dd>
+              <a href={`https://www.instagram.com/${instagram}`}>Instagram</a>/
+              <a href={`https://www.twitter.com/${twitter}`}>Twitter</a>
+            </dd>
+          </dl>
+        </div>
         <a href={`mailto:${email}`}>Contact Me</a>
         <div>Copyright © {author.name}. All rights reserved.</div>
       </div>

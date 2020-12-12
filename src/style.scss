@@ -21,7 +21,12 @@ $header-font: "Quattrocento", serif;
   margin: 0 auto;
   width: $width-scale;
   max-width: $maximum-width;
-  padding-bottom: 40px;
+  padding-bottom: 35px;
+
+  @media (min-width: $breakpoint) {
+    padding-top: 45px;
+    padding-bottom: 60px;
+  }
 }
 
 #header-nav {
@@ -30,7 +35,7 @@ $header-font: "Quattrocento", serif;
   z-index: 1;
 
   margin: 0 auto;
-  padding-top: 15px;
+  padding-top: 20px;
   width: $width-scale;
   max-width: $maximum-width;
 
@@ -47,7 +52,7 @@ $header-font: "Quattrocento", serif;
     }
 
     > div:last-child {
-      font-size: small;
+      font-size: x-small;
     }
   }
 }
@@ -84,35 +89,47 @@ $header-font: "Quattrocento", serif;
       font-size: smaller;
 
       > div:first-child {
-        margin-bottom: 30px;
-      }
+        @media (min-width: $breakpoint) {
+          display: flex;
+          justify-content: center;
+          line-height: 1.4rem;
 
-      > dl {
-        width: 280px;
-        margin: 0 auto;
-        line-height: 25px;
-
-        > dt {
-          width: 35%;
-          float: left;
-          text-align: right;
+          > dl {
+            margin: 0 0 0 100px !important;
+          }
         }
 
-        > dd {
-          width: 65%;
-          float: left;
-          text-align: left;
-          margin-left: 0;
-          text-indent: 20px;
+        > div:first-child {
+          margin-bottom: 30px;
+        }
 
-          > a {
-            margin: 0 7px;
-            color: #ffffff;
-            text-decoration: none;
+        > dl {
+          width: 280px;
+          margin: 0 auto;
+          line-height: 1.4rem;
 
-            &:hover {
-              cursor: pointer;
-              text-decoration: line-through;
+          > dt {
+            width: 35%;
+            float: left;
+            text-align: right;
+          }
+
+          > dd {
+            width: 65%;
+            float: left;
+            text-align: left;
+            margin-left: 0;
+            text-indent: 20px;
+
+            > a {
+              margin: 0 7px;
+              color: #ffffff;
+              text-decoration: none;
+
+              &:hover {
+                cursor: pointer;
+                text-decoration: line-through;
+              }
             }
           }
         }
