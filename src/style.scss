@@ -6,6 +6,7 @@ $width-scale: 90%;
 $maximum-width: 1200px;
 $mid-color: #141414;
 $dark-color: #000000;
+$nav-background: rgba(0, 0, 0, 0.7);
 $header-font: "Quattrocento", serif;
 
 :root {
@@ -21,7 +22,7 @@ $header-font: "Quattrocento", serif;
   margin: 0 auto;
   width: $width-scale;
   max-width: $maximum-width;
-  padding-bottom: 35px;
+  padding-bottom: 50px;
 
   @media (min-width: $breakpoint) {
     padding-top: 45px;
@@ -70,6 +71,124 @@ $header-font: "Quattrocento", serif;
 
     > div:last-child {
       font-size: x-small;
+    }
+  }
+
+  > div:last-child {
+    display: flex;
+    padding-top: 10px;
+
+    > nav {
+      > div {
+        display: none;
+      }
+
+      > a {
+        color: $mid-color;
+        font-family: $header-font;
+        text-decoration: none;
+        margin-left: 20px;
+
+        &:first-of-type {
+          display: none;
+        }
+
+        @media (min-width: $breakpoint) {
+          background: linear-gradient(to right, #ffffff 50%, $mid-color 50%);
+          background-size: 200% 100%;
+          background-position: left;
+          transition: background-position 0.2s;
+
+          &:hover {
+            color: #ffffff;
+            background-position: right;
+          }
+        }
+      }
+    }
+
+    > input:first-child {
+      visibility: hidden;
+      position: relative;
+    }
+
+    @media (max-width: $breakpoint) {
+      padding-top: 0;
+
+      > nav {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        position: fixed;
+        top: 100px;
+        bottom: 100px;
+        left: 0;
+        right: 0;
+        z-index: 3;
+
+        > div {
+          display: block;
+          color: #ffffff;
+
+          &:first-of-type {
+            font-family: $header-font;
+            font-size: xx-large;
+          }
+
+          &:nth-of-type(2) {
+            font-size: smaller;
+            margin-bottom: 40px;
+          }
+        }
+
+        > a {
+          color: #ffffff;
+          font-size: large;
+          margin: 12px 0;
+
+          &:first-of-type {
+            display: block;
+          }
+        }
+      }
+
+      > input:first-child {
+        &::after {
+          content: "☰";
+          font-size: x-large;
+          visibility: visible;
+
+          position: absolute;
+          right: 0;
+        }
+
+        &:checked {
+          + nav {
+            display: flex;
+          }
+
+          &::after {
+            content: "✕";
+            color: #ffffff;
+            z-index: 3;
+          }
+
+          &::before {
+            background: $nav-background;
+            visibility: visible;
+
+            content: "";
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 2;
+          }
+        }
+      }
     }
   }
 }

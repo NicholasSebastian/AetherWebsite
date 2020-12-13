@@ -4,21 +4,15 @@ import { Link, graphql } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 
+// Spinning cube with WebGL.
+// Query for directories in content folder, foreach...
+
 const Index = ({ data, location }) => {
   return (
     <Layout location={location}>
-      <SEO title="Home" />
-      <h2>Content</h2>
-      <h2>Content</h2>
-      <h2>Content</h2>
-      <h2>Content</h2>
-      <h2>Content</h2>
-      <h2>Content</h2>
-      <h2>Content</h2>
-      <h2>Content</h2>
-      <h2>Content</h2>
-      <h2>Content</h2>
-      <h2>Content</h2>
+      <SEO title="Games" />
+      <canvas id="spinning-cube" />
+
     </Layout>
   );
 }

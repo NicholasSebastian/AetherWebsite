@@ -10,7 +10,7 @@ const Blog = ({ data, location }) => {
 
   return (
     <Layout location={location}>
-      <SEO title="All posts" />
+      <SEO title="Blog" />
       {posts.length === 0 ? 
       <p>No posts yet.</p> :
       <ul>

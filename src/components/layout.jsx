@@ -1,16 +1,11 @@
 import React from "react"
 import { Link, useStaticQuery } from "gatsby"
 
-// Add navbar functionality and media queries
-// Add pages nav to footer
-// Add notes feed to footer
-// Add blog feed to footer
-
 const Layout = ({ location, children }) => {
   const data = useStaticQuery(staticQuery);
 
   const { title, description, author, social } = data.site.siteMetadata;
-  const { email, github, instagram, linkedin, twitter } = social;
+  const { github, instagram, linkedin, twitter } = social;
 
   const Header = () => 
     <header id="header-nav">
@@ -18,7 +13,20 @@ const Layout = ({ location, children }) => {
         <div>{title}</div>
         <div>{title} by {author.name} - {description}</div>
       </Link>
-      <div>Nav here</div>
+      <div>
+        <input type="checkbox" />
+        <nav>
+          <div>{title}</div>
+          <div>{title} by {author.name} - {description}</div>
+          <Link to="/">Home</Link>
+          <Link to="/projects">Projects</Link>
+          <Link to="/games">Games</Link>
+          <Link to="/about">About</Link>
+          <Link to="/blog">Blog</Link>
+          <Link to="/notes">Notes</Link>
+          <Link to="/contact">Contact</Link>
+        </nav>
+      </div>
     </header>
 
   const Footer = () => 
@@ -44,7 +52,7 @@ const Layout = ({ location, children }) => {
             </dd>
           </dl>
         </div>
-        <a href={`mailto:${email}`}>Contact Me</a>
+        <Link to="/contact">Contact Me</Link>
         <div>Copyright © {author.name}. All rights reserved.</div>
       </div>
     </footer>
@@ -74,7 +82,6 @@ const staticQuery = graphql`
           name
         }
         social {
-          email
           github
           instagram
           linkedin

@@ -5,6 +5,8 @@ import Image from "gatsby-image";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 
+// Add spotify API to show song currently listening to
+
 const About = ({ data, location }) => {
   const avatar = data.avatar.childImageSharp.fluid;
   const { author, social } = data.site.siteMetadata;
@@ -31,7 +33,8 @@ const About = ({ data, location }) => {
           </div>
           <div>
             <Link to="/experience">Experience</Link>
-            <a href="https://drive.google.com/file/d/1Iy3k-mzVJ2L6v8AFNLEAk8b1HfuuTdyJ/view?usp=sharing">
+            <a href="https://drive.google.com/file/d/1Iy3k-mzVJ2L6v8AFNLEAk8b1HfuuTdyJ/view?usp=sharing"
+              target="_blank" rel="noopener noreferrer">
               CV / Resume
             </a>
           </div>
