@@ -94,7 +94,11 @@ $header-font: "Quattrocento", serif;
         }
 
         @media (min-width: $breakpoint) {
-          background: linear-gradient(to right, #ffffff 50%, $mid-color 50%);
+          background: linear-gradient(
+            to right,
+            transparent 50%,
+            $mid-color 50%
+          );
           background-size: 200% 100%;
           background-position: left;
           transition: background-position 0.2s;
@@ -294,6 +298,15 @@ $header-font: "Quattrocento", serif;
         font-size: small;
       }
     }
+  }
+}
+
+#games {
+  > canvas {
+    display: block;
+    margin: 0 auto;
+    width: 150px;
+    height: 150px;
   }
 }
 

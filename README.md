@@ -21,8 +21,10 @@ Expected to be finished by the start of 2021.
 5. Games page
    - WebGL spinning cube
    - All games
-6. Blog page
+6. About page
+   - Spotify "currently listening to"
+7. Blog page
    - All blog posts
-7. Notes page
+8. Notes page
    - All notes
-8. Contact page
+9. Contact page

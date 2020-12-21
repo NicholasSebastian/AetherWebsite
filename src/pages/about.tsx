@@ -57,15 +57,15 @@ const About = ({ data, location }) => {
           <dt>Languages</dt>
           <dd>JavaScript, TypeScript, C#, Java, Python</dd>
           <dt>Front End Development</dt>
-          <dd>HTML, CSS, Sass and SCSS, React, jQuery, Blazor WebAssembly</dd>
+          <dd>HTML, CSS, Sass and SCSS, Bootstrap, React, Gatsby.js, Next.js, jQuery, Blazor WebAssembly, WebGL, Three.js</dd>
           <dt>Back End Development</dt>
           <dd>Node.js, Express, ASP.NET Core, GraphQL</dd>
           <dt>Databases</dt>
           <dd>MySQL, MongoDB</dd>
           <dt>Mobile Development</dt>
-          <dd>React Native, Ionic/Cordova, Xamarin</dd>
+          <dd>React Native, Ionic/Capacitor, Xamarin</dd>
           <dt>Game Development</dt>
-          <dd>Unity Engine, MonoGame, LibGDX, SDL, OpenGL Libraries</dd>
+          <dd>Unity Engine, MonoGame, LibGDX, PyGame, OpenGL {'('}OpenTK, LWJGL{')'}</dd>
           <dt>Desktop Development</dt>
           <dd>Electron, AWT/Swing, GtkSharp</dd>
           <dt>Others</dt>
