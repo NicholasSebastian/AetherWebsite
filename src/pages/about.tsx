@@ -57,7 +57,7 @@ const About = ({ data, location }) => {
           <dt>Languages</dt>
           <dd>JavaScript, TypeScript, C#, Java, Python</dd>
           <dt>Front End Development</dt>
-          <dd>HTML, CSS, Sass and SCSS, Bootstrap, React, Gatsby.js, Next.js, jQuery, Blazor WebAssembly, WebGL, Three.js</dd>
+          <dd>HTML, CSS, Sass and SCSS, Bootstrap, React, Gatsby.js, Next.js, jQuery, Blazor WebAssembly, WebGL {'('}Three.js, Pixi.js{')'}, GSAP</dd>
           <dt>Back End Development</dt>
           <dd>Node.js, Express, ASP.NET Core, GraphQL</dd>
           <dt>Databases</dt>

@@ -11,16 +11,19 @@ const Blog = ({ data, location }) => {
   return (
     <Layout location={location}>
       <SEO title="Blog" />
+      <h3>Posts</h3>
       {posts.length === 0 ? 
       <p>No posts yet.</p> :
       <ul>
-        {posts.map(post => 
-          <li key={post.fields.slug}>
-            <Image fluid={post.frontmatter.featuredImage?.childImageSharp.fluid || data.blankImage.childImageSharp.fluid} />
-            <Link to={post.fields.slug}>{post.frontmatter.title}</Link>
-            <small>{post.frontmatter.date}</small>
-            <div>{post.frontmatter.description || post.excerpt}</div>
-          </li>
+        {posts.map((post, i: number) => 
+          <Link key={i} to={post.fields.slug}>
+            <li style={{ zIndex: -i }}>
+              <Image fluid={post.frontmatter.featuredImage?.childImageSharp.fluid || data.blankImage.childImageSharp.fluid} />
+              <small>{post.frontmatter.date}</small>
+              <h3>{post.frontmatter.title}</h3>
+              <div>{post.frontmatter.description || post.excerpt}</div>
+            </li>
+          </Link>
         )}
       </ul>}
     </Layout>

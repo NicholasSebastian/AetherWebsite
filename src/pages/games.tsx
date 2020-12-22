@@ -3,16 +3,15 @@ import { Link, graphql } from "gatsby";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
+import renderCube from "../webgl/rotatingCube";
 
-// Spinning cube with WebGL.
-// Query for directories in content folder, foreach...
+// https://tympanus.net/codrops/2013/08/27/3d-shading-with-box-shadows/
 
 const Games = ({ data, location }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   useEffect(() => {
     const canvas = canvasRef.current;
-    const context = canvas.getContext("webgl");
-    renderCube(context);
+    renderCube(canvas);
   }, []);
 
   return (
@@ -35,7 +34,3 @@ export const pageQuery = graphql`
     }
   }
 `;
-
-function renderCube(context: WebGLRenderingContext) {
-
-}

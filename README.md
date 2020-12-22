@@ -28,3 +28,4 @@ Expected to be finished by the start of 2021.
 8. Notes page
    - All notes
 9. Contact page
+10. Preloader

@@ -4,9 +4,10 @@
 $breakpoint: 768px;
 $width-scale: 90%;
 $maximum-width: 1200px;
+$accent-color: #cbe9f8;
 $mid-color: #141414;
 $dark-color: #000000;
-$nav-background: rgba(0, 0, 0, 0.7);
+$nav-background: #000000;
 $header-font: "Quattrocento", serif;
 
 :root {
@@ -219,6 +220,11 @@ $header-font: "Quattrocento", serif;
         color: #ffffff;
         text-decoration: none;
         text-transform: uppercase;
+
+        &:hover {
+          cursor: pointer;
+          text-decoration: line-through;
+        }
       }
     }
 
@@ -542,6 +548,10 @@ $header-font: "Quattrocento", serif;
 }
 
 #blog {
+  @media (min-width: $breakpoint) {
+    padding-bottom: 250px;
+  }
+
   > p {
     margin: 200px 0;
     text-align: center;
@@ -551,7 +561,54 @@ $header-font: "Quattrocento", serif;
     list-style: none;
     padding: 0;
 
-    > li {
+    @media (min-width: $breakpoint) {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      perspective: 600px;
+
+      > a {
+        display: block;
+        height: 200px;
+        position: relative;
+
+        > li {
+          position: absolute;
+          width: inherit;
+          height: 320px;
+          transform: translateY(-60px) rotateX(45deg) scale(0.8);
+          transition: all 0.5s;
+        }
+
+        &:hover > li {
+          transform: translateY(-20px) rotateX(0) scale(1);
+          z-index: 1 !important;
+        }
+      }
+    }
+
+    > a {
+      color: #000000;
+      text-decoration: none;
+
+      > li {
+        background-color: #ffffff;
+        border: 1px solid $mid-color;
+        margin-top: 40px;
+        margin-bottom: 50px;
+        padding: 0 20px 30px 20px;
+
+        > div:first-child {
+          border: 1px solid $mid-color;
+          width: 85%;
+          max-height: 175px;
+          margin: 0 auto 10px auto;
+          transform: translateY(-5px);
+        }
+
+        > h3 {
+          margin: 8px 0;
+        }
+      }
     }
   }
 }
