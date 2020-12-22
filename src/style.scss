@@ -34,8 +34,6 @@ $header-font: "Quattrocento", serif;
     font-family: $header-font;
     font-size: xx-large;
     margin-bottom: 0;
-    grid-column-start: 1;
-    grid-column-end: 3;
 
     &::before {
       content: "";
@@ -322,6 +320,11 @@ $header-font: "Quattrocento", serif;
     grid-template-columns: 2fr 1fr;
   }
 
+  > h3 {
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+
   dl {
     display: inline-block;
     width: 100%;
@@ -549,7 +552,7 @@ $header-font: "Quattrocento", serif;
 
 #blog {
   @media (min-width: $breakpoint) {
-    padding-bottom: 250px;
+    padding-bottom: 200px;
   }
 
   > p {
@@ -574,13 +577,13 @@ $header-font: "Quattrocento", serif;
         > li {
           position: absolute;
           width: inherit;
-          height: 330px;
-          transform: translateY(-60px) rotateX(45deg) scale(0.8);
+          height: 310px;
+          transform: translateY(-70px) rotateX(45deg) scale(0.8);
           transition: all 0.5s;
         }
 
         &:hover > li {
-          transform: translateY(-20px) rotateX(0) scale(1);
+          transform: translateY(-20px) rotateX(0) scale(1.2);
           z-index: 1 !important;
         }
       }
@@ -607,6 +610,7 @@ $header-font: "Quattrocento", serif;
 
         > h3 {
           margin: 8px 0;
+          font-family: $header-font;
 
           &::after {
             content: "";
@@ -617,6 +621,149 @@ $header-font: "Quattrocento", serif;
             margin-top: 10px;
             margin-bottom: 15px;
           }
+        }
+
+        > div:last-child {
+          font-size: smaller;
+        }
+      }
+    }
+  }
+}
+
+#contact {
+  @media (min-width: $breakpoint) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    > section {
+      &:first-of-type {
+        padding-right: 30px;
+        margin-bottom: 0;
+
+        > a {
+          font-size: x-large !important;
+        }
+      }
+
+      &:last-of-type {
+        padding-left: 30px;
+      }
+    }
+  }
+
+  > h3 {
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+
+  > section {
+    &:first-of-type {
+      margin-bottom: 50px;
+
+      > p:first-of-type {
+        font-size: smaller;
+        margin-bottom: 30px;
+      }
+
+      > h5 {
+        display: inline-block;
+        margin: 10px 0;
+        font-size: small;
+        border-bottom: 1px solid $mid-color;
+        padding-bottom: 1px;
+      }
+
+      > a {
+        color: #1da1f2;
+        display: block;
+        text-decoration: none;
+        font-size: large;
+        font-weight: 400;
+
+        &:hover {
+          text-decoration: line-through;
+        }
+      }
+
+      > span {
+        display: block;
+        font-size: small;
+        margin-top: 10px;
+        margin-bottom: 30px;
+
+        &::before {
+          content: "※";
+          margin-right: 5px;
+        }
+      }
+
+      > ul {
+        padding-left: 20px;
+        margin: 0;
+
+        li {
+          font-size: smaller;
+          line-height: 1.2rem;
+          margin-top: 5px;
+          margin-bottom: 10px;
+        }
+      }
+    }
+
+    &:last-of-type {
+      > form {
+        label {
+          font-size: small;
+          font-weight: 400;
+        }
+
+        input[type="text"],
+        input[type="email"] {
+          width: 80%;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+          display: block;
+          margin-top: 5px;
+          margin-bottom: 20px;
+          padding: 8px;
+          border: 1px solid #cccccc;
+        }
+
+        > div:last-of-type {
+          display: flex;
+          justify-content: space-between;
+
+          label {
+            font-size: small;
+            font-weight: 300;
+          }
+        }
+
+        input[type="checkbox"] {
+          margin-right: 5px;
+        }
+
+        button {
+          background-color: #4d50ca;
+          color: #ffffff;
+          border: none;
+          padding: 10px 30px;
+
+          &:hover {
+            cursor: pointer;
+            background-color: $mid-color;
+          }
+        }
+
+        textarea {
+          resize: none;
+          width: 100%;
+          height: 150px;
+          box-sizing: border-box;
         }
       }
     }
