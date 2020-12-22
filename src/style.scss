@@ -574,7 +574,7 @@ $header-font: "Quattrocento", serif;
         > li {
           position: absolute;
           width: inherit;
-          height: 320px;
+          height: 330px;
           transform: translateY(-60px) rotateX(45deg) scale(0.8);
           transition: all 0.5s;
         }
@@ -607,6 +607,16 @@ $header-font: "Quattrocento", serif;
 
         > h3 {
           margin: 8px 0;
+
+          &::after {
+            content: "";
+            background-color: $mid-color;
+            display: block;
+            width: 50px;
+            height: 1px;
+            margin-top: 10px;
+            margin-bottom: 15px;
+          }
         }
       }
     }
