@@ -41,7 +41,10 @@ export const pageQuery = graphql`
         }
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(
+      filter: { fields: { slug: { regex: "/^/blog//" } } },
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
       posts: nodes {
         frontmatter {
           title
@@ -55,11 +58,11 @@ export const pageQuery = graphql`
             }
           }
         }
+        excerpt
+        timeToRead
         fields {
           slug
         }
-        excerpt
-        timeToRead
       }
     }
   }

@@ -4,7 +4,6 @@
 $breakpoint: 768px;
 $width-scale: 90%;
 $maximum-width: 1200px;
-$accent-color: #cbe9f8;
 $mid-color: #141414;
 $dark-color: #000000;
 $nav-background: #000000;
@@ -222,6 +221,69 @@ $header-font: "Quattrocento", serif;
         &:hover {
           cursor: pointer;
           text-decoration: line-through;
+        }
+      }
+
+      > div:last-child {
+        display: none;
+        margin-top: 50px;
+
+        @media (min-width: $breakpoint) {
+          width: $width-scale;
+          max-width: $maximum-width;
+          margin-left: auto;
+          margin-right: auto;
+
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          gap: 50px;
+        }
+
+        > div {
+          text-align: left;
+
+          > h4 {
+            position: relative;
+            border-top: 1px dashed #ffffff;
+            margin-bottom: 30px;
+
+            > span {
+              position: absolute;
+              top: -0.5rem;
+              z-index: 1;
+              background-color: $mid-color;
+              font-family: $header-font;
+              text-transform: uppercase;
+              padding-right: 10px;
+            }
+          }
+
+          > ul {
+            list-style: none;
+            padding-left: 0;
+
+            > li {
+              font-size: smaller;
+              margin-bottom: 10px;
+
+              > a {
+                color: #ffffff;
+                text-decoration: none;
+
+                &:hover {
+                  cursor: pointer;
+                  text-decoration: line-through;
+                }
+              }
+
+              > small {
+                color: #cccccc;
+                font-size: x-small;
+                margin-left: 10px;
+                user-select: none;
+              }
+            }
+          }
         }
       }
     }
@@ -575,15 +637,26 @@ $header-font: "Quattrocento", serif;
         position: relative;
 
         > li {
+          background-color: #ffffff;
+          outline: 1px solid $mid-color;
+          border-top: 5px dashed #ccc;
+          padding: 0 20px 30px 20px;
+
+          > div:first-child {
+            border: 1px solid $mid-color;
+            width: 85%;
+            transform: translateY(-10px);
+          }
+
           position: absolute;
           width: inherit;
           height: 310px;
-          transform: translateY(-70px) rotateX(45deg) scale(0.8);
+          transform: translateY(-70px) rotateX(40deg) scale(0.8);
           transition: all 0.5s;
         }
 
         &:hover > li {
-          transform: translateY(-20px) rotateX(0) scale(1.2);
+          transform: translateY(-20px) rotateX(0) scale(1.1);
           z-index: 1 !important;
         }
       }
@@ -594,18 +667,12 @@ $header-font: "Quattrocento", serif;
       text-decoration: none;
 
       > li {
-        background-color: #ffffff;
-        border: 1px solid $mid-color;
         margin-top: 40px;
         margin-bottom: 50px;
-        padding: 0 20px 30px 20px;
 
         > div:first-child {
-          border: 1px solid $mid-color;
-          width: 85%;
-          max-height: 175px;
+          max-height: 180px;
           margin: 0 auto 10px auto;
-          transform: translateY(-5px);
         }
 
         > h3 {
@@ -629,6 +696,9 @@ $header-font: "Quattrocento", serif;
       }
     }
   }
+}
+
+#notes {
 }
 
 #contact {

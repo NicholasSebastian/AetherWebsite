@@ -7,6 +7,9 @@ const Layout = ({ location, children }) => {
   const { title, description, author, social } = data.site.siteMetadata;
   const { github, instagram, linkedin, twitter } = social;
 
+  const posts = data.posts.nodes;
+  const notes = data.notes.nodes;
+
   const Header = () => 
     <header id="header-nav">
       <Link to="/">
@@ -35,6 +38,39 @@ const Layout = ({ location, children }) => {
         {location.pathname === "/" ? 
         <a href="#">Home</a> :
         <Link to ="/">Home</Link>}
+        <div>
+          <div>
+            <h4><span>Sitemap</span></h4>
+            <ul>
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/projects">Projects</Link></li>
+              <li><Link to="/games">Games</Link></li>
+              <li><Link to="/about">About</Link></li>
+              <li><Link to="/blog">Blog</Link></li>
+              <li><Link to="/notes">Notes</Link></li>
+              <li><Link to="/contact">Contact</Link></li>
+            </ul>
+          </div>
+          <div>
+            <h4><span>Blog</span></h4>
+            <ul>
+              {posts.map(post => 
+                <li>
+                  <Link to={post.fields.slug}>{post.frontmatter.title}</Link>
+                  <small>{post.frontmatter.date}</small>
+                </li>
+              )}
+            </ul>
+          </div>
+          <div>
+            <h4><span>Notes</span></h4>
+            <ul>
+              {notes.map(note => 
+                <li><Link to={note.fields.slug}>{note.frontmatter.title}</Link></li>
+              )}
+            </ul>
+          </div>
+        </div>
       </div>
       <div>
         <div>
@@ -86,6 +122,34 @@ const staticQuery = graphql`
           instagram
           linkedin
           twitter
+        }
+      }
+    }
+    posts: allMarkdownRemark(
+      filter: { fields: { slug: { regex: "/^/blog//" } } },
+      sort: { fields: [frontmatter___date], order: DESC },
+      limit: 7
+    ) {
+      nodes {
+        frontmatter {
+          title
+          date(formatString: "MMMM DD, YYYY")
+        }
+        fields {
+          slug
+        }
+      }
+    }
+    notes: allMarkdownRemark(
+      filter: { fields: { slug: { regex: "/^/notes//" } } },
+      limit: 7
+    ) {
+      nodes {
+        frontmatter {
+          title
+        }
+        fields {
+          slug
         }
       }
     }

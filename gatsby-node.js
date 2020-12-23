@@ -4,16 +4,13 @@ const { createFilePath } = require(`gatsby-source-filesystem`);
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
 
-  // Define a template for blog post
+  const projectView = path.resolve(`./src/templates/note-post.jsx`);
   const blogPost = path.resolve(`./src/templates/blog-post.jsx`);
+  const notePost = path.resolve(`./src/templates/note-post.jsx`);
 
-  // Get all markdown blog posts sorted by date
   const result = await graphql(`
     {
-      allMarkdownRemark(
-        sort: { fields: [frontmatter___date], order: ASC }
-        limit: 1000
-      ) {
+      allMarkdownRemark {
         nodes {
           id
           fields {
@@ -25,35 +22,27 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   `);
 
   if (result.errors) {
-    reporter.panicOnBuild(
-      `There was an error loading markdown`,
-      result.errors
-    );
+    reporter.panicOnBuild(`There was an error loading markdown`, result.errors);
     return;
   }
 
-  const posts = result.data.allMarkdownRemark.nodes;
-
-  // Create blog posts pages
-  // But only if there's at least one markdown file found at "content/blog" (defined in gatsby-config.js)
-  // `context` is available in the template as a prop and as a variable in GraphQL
-
-  if (posts.length > 0) {
-    posts.forEach((post, index) => {
-      const previousPostId = index === 0 ? null : posts[index - 1].id;
-      const nextPostId = index === posts.length - 1 ? null : posts[index + 1].id;
-
-      createPage({
-        path: post.fields.slug,
-        component: blogPost,
-        context: {
-          id: post.id,
-          previousPostId,
-          nextPostId,
-        },
-      });
-    });
-  }
+  const nodes = result.data.allMarkdownRemark.nodes;
+  nodes.forEach(node => {
+    const head = node.fields.slug.substring(0, 5);
+    const component = 
+      head == "/proj" ? projectView : 
+      head == "/blog" ? blogPost : 
+      head == "/note" ? notePost : 
+      null;
+      
+    createPage({
+      path: node.fields.slug,
+      component,
+      context: {
+        id: node.id,
+      },
+    })
+  });
 }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {

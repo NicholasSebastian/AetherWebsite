@@ -5,7 +5,7 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const BlogPostTemplate = ({ data, location }) => {
+const NotePostTemplate = ({ data, location }) => {
   const post = data.markdownRemark;
   const siteTitle = data.site.siteMetadata?.title || `Title`;
 
@@ -28,10 +28,10 @@ const BlogPostTemplate = ({ data, location }) => {
   )
 }
 
-export default BlogPostTemplate
+export default NotePostTemplate
 
 export const pageQuery = graphql`
-  query BlogPostBySlug(
+  query NotePostBySlug(
     $id: String!
   ) {
     site {
