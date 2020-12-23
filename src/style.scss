@@ -613,10 +613,6 @@ $header-font: "Quattrocento", serif;
 }
 
 #blog {
-  @media (min-width: $breakpoint) {
-    padding-bottom: 200px;
-  }
-
   > p {
     margin: 200px 0;
     text-align: center;
@@ -628,7 +624,6 @@ $header-font: "Quattrocento", serif;
 
     @media (min-width: $breakpoint) {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
       perspective: 600px;
 
       > a {
@@ -639,25 +634,11 @@ $header-font: "Quattrocento", serif;
         > li {
           background-color: #ffffff;
           outline: 1px solid $mid-color;
-          border-top: 5px dashed #ccc;
-          padding: 0 20px 30px 20px;
-
-          > div:first-child {
-            border: 1px solid $mid-color;
-            width: 85%;
-            transform: translateY(-10px);
-          }
+          padding: 0 20px;
 
           position: absolute;
           width: inherit;
-          height: 310px;
-          transform: translateY(-70px) rotateX(40deg) scale(0.8);
           transition: all 0.5s;
-        }
-
-        &:hover > li {
-          transform: translateY(-20px) rotateX(0) scale(1.1);
-          z-index: 1 !important;
         }
       }
     }
@@ -669,11 +650,6 @@ $header-font: "Quattrocento", serif;
       > li {
         margin-top: 40px;
         margin-bottom: 50px;
-
-        > div:first-child {
-          max-height: 180px;
-          margin: 0 auto 10px auto;
-        }
 
         > h3 {
           margin: 8px 0;
@@ -692,13 +668,45 @@ $header-font: "Quattrocento", serif;
 
         > div:last-child {
           font-size: smaller;
+          line-height: 1rem;
         }
       }
     }
   }
 }
 
-#notes {
+#blog {
+  padding-bottom: 180px;
+
+  > ul {
+    > a > li > div:first-child {
+      max-height: 180px;
+      margin: 0 auto 10px auto;
+    }
+
+    @media (min-width: $breakpoint) {
+      grid-template-columns: 1fr 1fr 1fr;
+
+      > a {
+        > li {
+          border-top: 5px dashed #ccc;
+          height: 340px;
+          transform: translateY(-70px) rotateX(40deg) scale(0.8);
+
+          > div:first-child {
+            border: 1px solid $mid-color;
+            width: 85%;
+            transform: translateY(-10px);
+          }
+        }
+
+        &:hover > li {
+          transform: translateY(-20px) rotateX(0) scale(1.1);
+          z-index: 1 !important;
+        }
+      }
+    }
+  }
 }
 
 #contact {

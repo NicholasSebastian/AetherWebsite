@@ -26,7 +26,6 @@ const Layout = ({ location, children }) => {
           <Link to="/games">Games</Link>
           <Link to="/about">About</Link>
           <Link to="/blog">Blog</Link>
-          <Link to="/notes">Notes</Link>
           <Link to="/contact">Contact</Link>
         </nav>
       </div>
@@ -40,19 +39,19 @@ const Layout = ({ location, children }) => {
         <Link to ="/">Home</Link>}
         <div>
           <div>
-            <h4><span>Sitemap</span></h4>
+            <h4><span>Content</span></h4>
             <ul>
-              <li><Link to="/">Home</Link></li>
               <li><Link to="/projects">Projects</Link></li>
               <li><Link to="/games">Games</Link></li>
               <li><Link to="/about">About</Link></li>
+              <li><Link to="/experience">Experience</Link></li>
               <li><Link to="/blog">Blog</Link></li>
-              <li><Link to="/notes">Notes</Link></li>
-              <li><Link to="/contact">Contact</Link></li>
             </ul>
           </div>
           <div>
             <h4><span>Blog</span></h4>
+            {posts.length === 0 ? 
+            <p>No posts yet.</p> :
             <ul>
               {posts.map(post => 
                 <li>
@@ -60,15 +59,17 @@ const Layout = ({ location, children }) => {
                   <small>{post.frontmatter.date}</small>
                 </li>
               )}
-            </ul>
+            </ul>}
           </div>
           <div>
             <h4><span>Notes</span></h4>
+            {notes.length === 0 ?
+            <p>No notes yet.</p> :
             <ul>
               {notes.map(note => 
                 <li><Link to={note.fields.slug}>{note.frontmatter.title}</Link></li>
               )}
-            </ul>
+            </ul>}
           </div>
         </div>
       </div>
@@ -128,7 +129,7 @@ const staticQuery = graphql`
     posts: allMarkdownRemark(
       filter: { fields: { slug: { regex: "/^/blog//" } } },
       sort: { fields: [frontmatter___date], order: DESC },
-      limit: 7
+      limit: 6
     ) {
       nodes {
         frontmatter {
@@ -142,7 +143,7 @@ const staticQuery = graphql`
     }
     notes: allMarkdownRemark(
       filter: { fields: { slug: { regex: "/^/notes//" } } },
-      limit: 7
+      limit: 6
     ) {
       nodes {
         frontmatter {
