@@ -15,7 +15,7 @@ const Games = ({ data, location }) => {
   }, []);
 
   return (
-    <Layout location={location}>
+    <Layout location={location} id="games">
       <SEO title="Games" />
       <canvas ref={canvasRef} width={450} height={450} />
 

@@ -13,7 +13,7 @@ const About = ({ data, location }) => {
   const { github, linkedin, instagram, twitter } = social;
 
   return (
-    <Layout location={location}>
+    <Layout location={location} id="about">
       <SEO title="About" />
       <h3>About</h3>
       <section>

@@ -9,7 +9,7 @@ const Blog = ({ data, location }) => {
   const { posts } = data.allMarkdownRemark;
 
   return (
-    <Layout location={location}>
+    <Layout location={location} id="blog">
       <SEO title="Blog" />
       <h3>Posts</h3>
       {posts.length === 0 ? 

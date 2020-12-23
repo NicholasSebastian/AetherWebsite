@@ -1,14 +1,12 @@
 import React from "react"
 import { Link, useStaticQuery } from "gatsby"
 
-const Layout = ({ location, children }) => {
+const Layout = ({ location, children, id }) => {
   const data = useStaticQuery(staticQuery);
 
   const { title, description, author, social } = data.site.siteMetadata;
   const { github, instagram, linkedin, twitter } = social;
-
   const posts = data.posts.nodes;
-  const notes = data.notes.nodes;
 
   const Header = () => 
     <header id="header-nav">
@@ -92,7 +90,7 @@ const Layout = ({ location, children }) => {
     <>
       <Header />
       <main 
-        id={location.pathname.substr(1) || "index"}
+        id={id}
         className="main-container">
           {children}
       </main>
@@ -123,7 +121,7 @@ const staticQuery = graphql`
     posts: allMarkdownRemark(
       filter: { fields: { slug: { regex: "/^/blog//" } } },
       sort: { fields: [frontmatter___date], order: DESC },
-      limit: 6
+      limit: 5
     ) {
       nodes {
         frontmatter {

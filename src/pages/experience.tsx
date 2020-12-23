@@ -6,7 +6,7 @@ import SEO from "../components/seo";
 
 const Experience = ({ data, location }) => {
   return (
-    <Layout location={location}>
+    <Layout location={location} id="experience">
       <SEO title="Experience" />
       <h3>Experience</h3>
       <h4>Work</h4>

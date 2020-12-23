@@ -1,52 +1,62 @@
-import React from "react"
-import { Link, graphql } from "gatsby"
+import React from "react";
+import { graphql } from "gatsby";
+import Image from "gatsby-image";
 
-import Bio from "../components/bio"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Layout from "../components/layout";
+import SEO from "../components/seo";
 
 const BlogPostTemplate = ({ data, location }) => {
+  const blankImage = data.blankImage.childImageSharp.fluid;
   const post = data.markdownRemark;
-  const siteTitle = data.site.siteMetadata?.title || `Title`;
+  const { title, description, date, featuredImage } = post.frontmatter;
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout location={location} id="blog-post">
       <SEO
-        title={post.frontmatter.title}
-        description={post.frontmatter.description || post.excerpt}
+        title={title}
+        description={description || post.excerpt}
       />
       <article>
         <header>
-          <h1>{post.frontmatter.title}</h1>
-          <p>{post.frontmatter.date}</p>
+          <Image fluid={featuredImage?.childImageSharp.fluid || blankImage} />
+          <div>
+            <span>{date}</span>
+            <h1>{title}</h1>
+          </div>
         </header>
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
-        <hr />
-        <footer><Bio /></footer>
       </article>
     </Layout>
   )
 }
 
-export default BlogPostTemplate
+export default BlogPostTemplate;
 
 export const pageQuery = graphql`
   query BlogPostBySlug(
     $id: String!
   ) {
-    site {
-      siteMetadata {
-        title
+    blankImage: file(absolutePath: { regex: "/no-image.png/" }) {
+      childImageSharp {
+        fluid(maxWidth: 300, quality: 100) {
+          ...GatsbyImageSharpFluid
+        }
       }
     }
     markdownRemark(id: { eq: $id }) {
-      id
       excerpt(pruneLength: 160)
       html
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        featuredImage {
+          childImageSharp {
+            fluid (maxWidth: 300, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
   }

@@ -709,6 +709,67 @@ $header-font: "Quattrocento", serif;
   }
 }
 
+#blog-post > article {
+  > header {
+    position: relative;
+
+    @media (min-width: $breakpoint) {
+      > div:first-child {
+        margin-top: 0 !important;
+      }
+
+      > div:last-child {
+        bottom: 20px !important;
+        left: 100px !important;
+      }
+    }
+
+    > div:first-child {
+      height: 200px;
+      margin-top: 30px;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.4);
+      }
+    }
+
+    > div:last-child {
+      position: absolute;
+      bottom: 10px;
+      left: 20px;
+
+      > span {
+        color: #ffffff;
+        font-size: small;
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      > h1 {
+        color: #ffffff;
+        font-family: $header-font;
+        margin: 0;
+      }
+    }
+  }
+
+  > section:last-child {
+    pre {
+      overflow: scroll;
+    }
+
+    @media (min-width: $breakpoint) {
+      padding: 0 100px;
+    }
+  }
+}
+
 #contact {
   @media (min-width: $breakpoint) {
     display: grid;

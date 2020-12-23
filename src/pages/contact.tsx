@@ -11,7 +11,7 @@ const Contact = ({ data, location }) => {
   const { email } = data.site.siteMetadata.social;
 
   return (
-    <Layout location={location}>
+    <Layout location={location} id="contact">
       <SEO title="Contact" />
       <h3>Contact</h3>
       <section>
