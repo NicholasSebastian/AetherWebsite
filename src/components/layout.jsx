@@ -62,14 +62,8 @@ const Layout = ({ location, children }) => {
             </ul>}
           </div>
           <div>
-            <h4><span>Notes</span></h4>
-            {notes.length === 0 ?
-            <p>No notes yet.</p> :
-            <ul>
-              {notes.map(note => 
-                <li><Link to={note.fields.slug}>{note.frontmatter.title}</Link></li>
-              )}
-            </ul>}
+            <h4><span>Twitter</span></h4>
+            
           </div>
         </div>
       </div>
@@ -135,19 +129,6 @@ const staticQuery = graphql`
         frontmatter {
           title
           date(formatString: "MMMM DD, YYYY")
-        }
-        fields {
-          slug
-        }
-      }
-    }
-    notes: allMarkdownRemark(
-      filter: { fields: { slug: { regex: "/^/notes//" } } },
-      limit: 6
-    ) {
-      nodes {
-        frontmatter {
-          title
         }
         fields {
           slug
