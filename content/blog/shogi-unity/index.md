@@ -5,6 +5,4 @@ date: 2020-04-29
 featuredImage: shogi.png
 ---
 
-![test](/post_images/shogi.png)
-
 test

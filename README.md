@@ -1,20 +1,17 @@
-# New Website
+# Concept Portfolio Website
 
-Expected to be finished by the start of 2021.
+Trying out a minimalistic design for a new portfolio.  
+Turns out to be too simplistic for my tastes.  
+I might not actually use it and am in favor of starting a new one.
 
 ## To Do List
 
 1. Page transitions.
-2. Footer
-   - Nav
-   - Blog feed
-   - Notes feed
+2. Footer Twitter Feed.
 3. Home page
    - Featured projects carousel
    - SNS and Description
    - Blog feed
-   - Twitter feed
-   - Instagram feed
 4. Projects page
    - All projects
    - Github repos feed
@@ -23,9 +20,4 @@ Expected to be finished by the start of 2021.
    - All games
 6. About page
    - Spotify "currently listening to"
-7. Blog page
-   - All blog posts
-8. Notes page
-   - All notes
-9. Contact page
-10. Preloader
+7. Preloader
